@@ -9,17 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (hideEl) hideEl.classList.add("d-none");
         });
 
-        // Ensure carousel is only visible when "fare-guide" is shown
-        let carousel = document.getElementById("ticketCarousel");
-        if (carousel) {
-            if (showElement === "fare-guide") {
-                carousel.classList.remove("d-none");
-            } else {
-                carousel.classList.add("d-none");
-            }
-        }
-    }
-
     // Event Listeners for Navbar Buttons
     let transitScheduleBtn = document.getElementById("transitScheduleBtn");
     let contactUsBtn = document.getElementById("contactUsBtn");
@@ -59,14 +48,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Ticket Selection in Carousel
-    let ticketButtons = document.querySelectorAll(".choose-ticket-btn");
-    if (ticketButtons) {
-        ticketButtons.forEach(button => {
-            button.addEventListener("click", function () {
-                let ticketType = this.getAttribute("data-ticket"); // Get ticket type
-                alert(`Your ${ticketType} ticket has been sent to your email. You may now print it.`);
-            });
-        });
-    }
-});
