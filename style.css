@@ -40,6 +40,6 @@ body {
     border-radius: 10px;
 }
 
-h2 {
-    color: #6D2323;
+.card h2 {
+    color: #6D2323 !important;
 }
