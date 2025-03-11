@@ -5,20 +5,20 @@ body {
 }
 
 .navbar {
-    background-color: #660000;
+    background-color: #660000 !important; /* Force dark red/maroon color */
 }
 
 .navbar .navbar-brand,
 .navbar .nav-link {
-    color: white;
+    color: white !important; /* Ensure text is white */
 }
 
 .navbar .nav-link:hover {
-    color: black; 
+    color: black !important; /* Hover effect */
 }
 
 .navbar-toggler {
-    border-color: white;
+    border-color: white !important; /* Ensure toggler border is white */
 }
 
 /* Change the card background color */
