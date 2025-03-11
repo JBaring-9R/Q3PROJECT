@@ -5,6 +5,14 @@ document.addEventListener("DOMContentLoaded", function () {
         hideElements.forEach(element => {
             document.getElementById(element).classList.add("d-none");
         });
+        
+    // Ensure carousel is only visible when "fare-guide" is shown
+        let carousel = document.getElementById("ticketCarousel");
+        if (showElement === "fare-guide") {
+            carousel.classList.remove("d-none");
+        } else {
+            carousel.classList.add("d-none");
+        }
     }
 
     // Event Listeners for Navbar Buttons
@@ -28,5 +36,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("closeContactBtn").addEventListener("click", function () {
         document.getElementById("contact-us").classList.add("d-none");
+    });
+
+    // Carousel Ticket Selection
+    let ticketButtons = document.querySelectorAll(".choose-ticket-btn");
+    ticketButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            let ticketType = this.getAttribute("data-ticket"); // Get ticket type
+            alert(`Your ${ticketType} ticket has been sent to your email. You may now print it.`);
+        });
     });
 });
