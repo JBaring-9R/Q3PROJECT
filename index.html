@@ -18,8 +18,8 @@
 
 <!-- Body: Jaiyanah Baring & Lauren Villafuerte -->
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+       <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <!-- Rail Transit Logo -->
             <a class="navbar-brand" href="home">
@@ -33,9 +33,9 @@
 
             <!-- Navbar Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" id="homeBtn">Home</a>
+                        <a class="nav-link active" href="#">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="transitScheduleBtn">Transit Schedule</a>
@@ -44,6 +44,16 @@
                         <a class="nav-link" href="#" id="contactUsBtn">Contact Us</a>
                     </li>
                 </ul>
+
+                <!-- Search Box -->
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-light" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
 
     <!-- Fare Guide Section -->
     <section id="fare-guide" class="container mt-4">
