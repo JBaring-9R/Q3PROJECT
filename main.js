@@ -1,3 +1,4 @@
+console.log("JavaScript Loaded!");
 document.addEventListener("DOMContentLoaded", function () {
     // Function to toggle visibility of elements
     function toggleVisibility(showElement, hideElements) {
