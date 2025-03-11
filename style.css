@@ -4,23 +4,19 @@ body {
   color: black;
 }
 
-/* Change Navbar Background Color */
 .navbar {
-    background-color:#660000 !important; /* Change this to your preferred color */
+    background-color:#660000;
 }
 
-/* Change Navbar Text Color */
 .navbar .navbar-brand,
 .navbar .nav-link {
-    color: white !important; /* Ensures text remains visible */
+    color: white;
 }
 
-/* Change Navbar Hover Effect */
 .navbar .nav-link:hover {
-    color: #660000 !important; /* Change this to any hover color you want */
+    color: #660000; 
 }
 
-/* Navbar Toggle Button Color (for mobile view) */
 .navbar-toggler {
-    border-color: white !important;
+    border-color: white;
 }
