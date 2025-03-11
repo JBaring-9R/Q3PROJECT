@@ -5,7 +5,8 @@ body {
 }
 
 .navbar {
-    background-color: #490404;
+    background-color: #490404 !important;
+    background-image: none !important;
 }
 
 .navbar .navbar-brand,
