@@ -85,5 +85,3 @@ document.addEventListener("DOMContentLoaded", function () {
         calculateFare("discounted");
     });
 });
-
-fff
