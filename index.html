@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<!-- html: Jaiyanah Baring & Lauren Villafuerte -->
+<!-- Header: Lauren Villafuerte -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,24 +13,43 @@
 
   <!-- CSS SETUP -->
   <link rel="stylesheet" type="text/css" href="style.css">
-        <title>MRT-3 Train Fare Guide</title>
+    <title>MRT-3 Traim Fare Guide</title>
 </head>
+
+<!-- Body: Jaiyanah Baring & Lauren Villafuerte -->
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <!-- Rail Transit Logo -->
+            <a class="navbar-brand" href="home">
                 <img src="MRT 3.png" alt="Rail Transit Logo" width="100px" height="100px" class="rounded"> MRT-3 Fare Guide
             </a>
+
+            <!-- Navbar Toggle (for mobile view) -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <!-- Navbar Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#" id="homeBtn">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" id="transitScheduleBtn">Transit Schedule</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" id="contactUsBtn">Contact Us</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="transitScheduleBtn">Transit Schedule</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="contactUsBtn">Contact Us</a>
+                    </li>
                 </ul>
+
+                <!-- Search Box -->
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-light" type="submit">Search</button>
+                </form>
             </div>
         </div>
     </nav>
@@ -38,7 +57,7 @@
     <!-- Fare Guide Section -->
     <section id="fare-guide" class="container mt-4">
         <div class="card p-4 shadow-lg">
-            <h2 class="text-center fw-bold">Fare Guide</h2>
+            <h2 class="text-center text-danger fw-bold">Fare Guide</h2>
             <div class="row">
                 <div class="col-md-8">
                     <form>
@@ -51,14 +70,17 @@
                             <input type="text" id="destination" class="form-control" placeholder="Enter destination station">
                         </div>
                         <div class="mb-3">
-                            <button type="button" class="btn btn-warning" id="regularFareBtn">Regular Fare</button>
-                            <button type="button" class="btn btn-danger" id="discountedFareBtn">Discounted Fare</button>
+                            <button type="button" class="btn btn-primary" onclick="calculateFare('regular')">Regular Fare</button>
+                            <button type="button" class="btn btn-info" onclick="calculateFare('discounted')">Discounted Fare</button>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Ticket Price:</label>
                             <input type="text" id="ticketPrice" class="form-control" readonly>
                         </div>
                     </form>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="train-card.png" alt="Train Ticket" class="img-fluid rounded">
                 </div>
             </div>
         </div>
@@ -67,7 +89,7 @@
     <!-- Transit Schedule Section (Hidden by Default) -->
     <section id="transit-schedule" class="container mt-4 d-none">
         <div class="card p-4 shadow-lg">
-            <h2 class="text-center fw-bold">Transit Schedule</h2>
+            <h2 class="text-center text-primary fw-bold">Transit Schedule</h2>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -102,7 +124,7 @@
 <!-- Contact Us Section (Hidden by Default) -->
     <section id="contact-us" class="container mt-4 d-none">
         <div class="card p-4 shadow-lg">
-            <h2 class="text-center fw-bold">Contact Us</h2>
+            <h2 class="text-center text-success fw-bold">Contact Us</h2>
             <p class="text-center">For inquiries, feedback, or concerns, feel free to reach out to us.</p>
             <form>
                 <div class="mb-3">
@@ -118,12 +140,18 @@
                     <textarea id="message" class="form-control" rows="4" placeholder="Write your message here"></textarea>
                 </div>
                 <div class="mb-3 text-center">
-                    <button type="button" class="btn btn-warning" onclick="submitContact()">Send Message</button>
+                    <button type="button" class="btn btn-primary" onclick="submitContact()">Send Message</button>
                     <button type="button" id="closeContactBtn" class="btn btn-danger">Close</button>
                 </div>
             </form>
         </div>
     </section>
+
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>
+
 
     <!-- JavaScript -->
     <script src="main.js"></script>
