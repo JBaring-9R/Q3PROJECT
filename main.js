@@ -1,4 +1,3 @@
-console.log("JavaScript Loaded!");
 document.addEventListener("DOMContentLoaded", function () {
     // Function to toggle visibility of elements
     function toggleVisibility(showElement, hideElements) {
@@ -8,48 +7,31 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Function to show sections
-    function showSection(sectionId) {
-        // Hide all sections
-        document.getElementById("fare-guide").classList.add("d-none");
-        document.getElementById("transit-schedule").classList.add("d-none");
-        document.getElementById("contact-us").classList.add("d-none");
-
-        // Show the requested section
-        document.getElementById(sectionId).classList.remove("d-none");
-
-        // Hide carousel unless it's the home section
-        let carousel = document.getElementById("ticketCarousel");
-        if (sectionId === "fare-guide") {
-            carousel.classList.remove("d-none");
-        } else {
-            carousel.classList.add("d-none");
-        }
-    }
-
     // Event Listeners for Navbar Buttons
-    document.getElementById("homeBtn").addEventListener("click", function () {
-        showSection("fare-guide");
-    });
-
     document.getElementById("transitScheduleBtn").addEventListener("click", function () {
-        showSection("transit-schedule");
+        toggleVisibility("transit-schedule", ["contact-us", "fare-guide"]);
     });
 
     document.getElementById("contactUsBtn").addEventListener("click", function () {
-        showSection("contact-us");
+        toggleVisibility("contact-us", ["transit-schedule", "fare-guide"]);
+    });
+
+    document.getElementById("homeBtn").addEventListener("click", function () {
+        toggleVisibility("fare-guide", ["transit-schedule", "contact-us"]);
     });
 
     // Close Buttons for Sections
     document.getElementById("closeScheduleBtn").addEventListener("click", function () {
-        showSection("fare-guide");
+        document.getElementById("transit-schedule").classList.add("d-none");
+        document.getElementById("fare-guide").classList.remove("d-none"); // Show fare guide when closing schedule
     });
 
     document.getElementById("closeContactBtn").addEventListener("click", function () {
-        showSection("fare-guide");
+        document.getElementById("contact-us").classList.add("d-none");
+        document.getElementById("fare-guide").classList.remove("d-none"); // Show fare guide when closing contact
     });
 
-    // Contact Form Submission Handling
+    // Corrected Contact Form Submission Handling
     function submitContact() {
         let name = document.getElementById("name").value.trim();
         let email = document.getElementById("email").value.trim();
@@ -60,12 +42,13 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        alert(`Thank you, ${name}! Your message has been sent successfully.`);
-        showSection("fare-guide"); // Show fare guide after submission
+        alert(Thank you, ${name}! Your message has been sent successfully.);
+        document.getElementById("contact-us").classList.add("d-none"); // Hide after submission
+        document.getElementById("fare-guide").classList.remove("d-none"); // Show fare guide after submission
     }
 
     // Attach event listener to the "Send Message" button
-    document.getElementById("sendMessageBtn").addEventListener("click", submitContact);
+    document.querySelector(".btn-primary[onclick='submitContact()']").addEventListener("click", submitContact);
 
     // Fare Calculation Function
     function calculateFare(type) {
@@ -90,26 +73,53 @@ document.addEventListener("DOMContentLoaded", function () {
             price *= 0.8; // 20% discount
         }
 
-        document.getElementById("ticketPrice").value = `₱${price.toFixed(2)}`;
+        document.getElementById("ticketPrice").value = ₱${price.toFixed(2)};
     }
 
     // Attach fare calculation function to buttons
-    document.getElementById("regularFareBtn").addEventListener("click", function () {
+    document.querySelector(".btn-primary[onclick=\"calculateFare('regular')\"]").addEventListener("click", function () {
         calculateFare("regular");
     });
 
-    document.getElementById("discountedFareBtn").addEventListener("click", function () {
+    document.querySelector(".btn-info[onclick=\"calculateFare('discounted')\"]").addEventListener("click", function () {
         calculateFare("discounted");
     });
-
-    document.addEventListener("DOMContentLoaded", function () {
-    // Select all "Choose Ticket" buttons
-    let ticketButtons = document.querySelectorAll(".choose-ticket-btn");
-
-    ticketButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            let ticketType = this.getAttribute("data-ticket"); // Get ticket type
-            alert(`Your ${ticketType} ticket has been sent to your email. You may now print it.`);
-        });
-    });
 });
+
+document.getElementById("homeBtn").addEventListener("click", function () {
+    showSection("fare-guide");
+});
+
+document.getElementById("transitScheduleBtn").addEventListener("click", function () {
+    showSection("transit-schedule");
+});
+
+document.getElementById("contactUsBtn").addEventListener("click", function () {
+    showSection("contact-us");
+});
+
+document.getElementById("closeScheduleBtn").addEventListener("click", function () {
+    showSection("fare-guide");
+});
+
+document.getElementById("closeContactBtn").addEventListener("click", function () {
+    showSection("fare-guide");
+});
+
+function showSection(sectionId) {
+    // Hide all sections
+    document.getElementById("fare-guide").classList.add("d-none");
+    document.getElementById("transit-schedule").classList.add("d-none");
+    document.getElementById("contact-us").classList.add("d-none");
+
+    // Show the requested section
+    document.getElementById(sectionId).classList.remove("d-none");
+
+    // Hide carousel unless it's the home section
+    let carousel = document.getElementById("ticketCarousel");
+    if (sectionId === "fare-guide") {
+        carousel.classList.remove("d-none");
+    } else {
+        carousel.classList.add("d-none");
+    }
+}
