@@ -1,6 +1,13 @@
 body {
-  background: url("https://i.pinimg.com/736x/8e/21/a7/8e21a7d51b84f95d31a9e27832140ded.jpg") center/cover no-repeat fixed;
-  color: black;
+    background: url("https://i.pinimg.com/736x/8e/21/a7/8e21a7d51b84f95d31a9e27832140ded.jpg") center/cover no-repeat;
+    background-attachment: fixed;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
 }
 
 .navbar {
@@ -11,6 +18,7 @@ body {
 .navbar .navbar-brand,
 .navbar .nav-link {
     color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .navbar .nav-link:hover {
@@ -21,13 +29,17 @@ body {
     border-color: white;
 }
 
-/* Change the card background color */
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
 .card {
     background-color: #FF9C73 !important;
     border: 2px solid #dc3545;
     color: black;
+    border-radius: 10px;
 }
 
 h2 {
-  color: #6D2323;
+    color: #6D2323;
 }
