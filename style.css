@@ -3,7 +3,7 @@
 body {
     background: url("https://i.pinimg.com/736x/8e/21/a7/8e21a7d51b84f95d31a9e27832140ded.jpg") center/cover no-repeat;
     background-attachment: fixed;
-    color: red;
+    color: #490404 !important;
 }
 
 @media (max-width: 768px) {
