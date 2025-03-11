@@ -1,34 +1,42 @@
-// Function to toggle Transit Schedule visibility
-document.getElementById("transitScheduleBtn").addEventListener("click", function() {
-    document.getElementById("transit-schedule").classList.remove("d-none");
-    document.getElementById("contact-us").classList.add("d-none"); // Hide Contact Us if open
-});
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to toggle visibility of elements
+    function toggleVisibility(showElement, hideElements) {
+        document.getElementById(showElement).classList.remove("d-none");
+        hideElements.forEach(element => {
+            document.getElementById(element).classList.add("d-none");
+        });
+    }
 
-document.getElementById("closeScheduleBtn").addEventListener("click", function() {
-    document.getElementById("transit-schedule").classList.add("d-none");
-});
+    // Event Listeners for Navbar Buttons
+    document.getElementById("transitScheduleBtn").addEventListener("click", function () {
+        toggleVisibility("transit-schedule", ["contact-us"]);
+    });
 
-// Fix: Properly select "Contact Us" button by ID
-document.getElementById("contactUsBtn").addEventListener("click", function() {
-    document.getElementById("contact-us").classList.remove("d-none");
-    document.getElementById("transit-schedule").classList.add("d-none"); // Hide Transit Schedule if open
-});
+    document.getElementById("contactUsBtn").addEventListener("click", function () {
+        toggleVisibility("contact-us", ["transit-schedule"]);
+    });
 
-// Function to close Contact Us section
-document.getElementById("closeContactBtn").addEventListener("click", function() {
-    document.getElementById("contact-us").classList.add("d-none");
-});
+    // Close Buttons for Sections
+    document.getElementById("closeScheduleBtn").addEventListener("click", function () {
+        document.getElementById("transit-schedule").classList.add("d-none");
+    });
 
-// Function to handle Contact Form submission
-function submitContact() {
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let message = document.getElementById("message").value;
+    document.getElementById("closeContactBtn").addEventListener("click", function () {
+        document.getElementById("contact-us").classList.add("d-none");
+    });
 
-    if (name === "" || email === "" || message === "") {
-        alert("Please fill in all fields before sending your message.");
-    } else {
+    // Contact Form Submission Handling
+    document.getElementById("submitContactBtn").addEventListener("click", function () {
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let message = document.getElementById("message").value.trim();
+
+        if (!name || !email || !message) {
+            alert("Please fill in all fields before sending your message.");
+            return;
+        }
+
         alert(`Thank you, ${name}! Your message has been sent successfully.`);
         document.getElementById("contact-us").classList.add("d-none"); // Hide after submission
-    }
-}
+    });
+});
