@@ -1,5 +1,3 @@
-//Javascript: Jaiyanah Baring & Lauren Villafuerte
-
 document.addEventListener("DOMContentLoaded", function () {
     // Function to toggle visibility of elements
     function toggleVisibility(showElement, hideElements) {
