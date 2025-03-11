@@ -1,26 +1,6 @@
 // Function to toggle Transit Schedule visibility
 document.getElementById("transitScheduleBtn").addEventListener("click", function() {
     document.getElementById("transit-schedule").classList.remove("d-none");
-});
-
-document.getElementById("closeScheduleBtn").addEventListener("click", function() {
-    document.getElementById("transit-schedule").classList.add("d-none");
-});
-
-// Function to calculate fare (Placeholder: Add logic later)
-function calculateFare(type) {
-    let ticketPrice = document.getElementById("ticketPrice");
-    
-    if (type === "regular") {
-        ticketPrice.value = "₱30.00"; // Replace with actual calculation
-    } else if (type === "discounted") {
-        ticketPrice.value = "₱15.00"; // Replace with actual calculation
-    }
-}
-
-// Function to toggle Transit Schedule visibility
-document.getElementById("transitScheduleBtn").addEventListener("click", function() {
-    document.getElementById("transit-schedule").classList.remove("d-none");
     document.getElementById("contact-us").classList.add("d-none"); // Hide Contact Us if open
 });
 
@@ -28,18 +8,8 @@ document.getElementById("closeScheduleBtn").addEventListener("click", function()
     document.getElementById("transit-schedule").classList.add("d-none");
 });
 
-// Function to toggle Transit Schedule visibility
-document.getElementById("transitScheduleBtn").addEventListener("click", function() {
-    document.getElementById("transit-schedule").classList.remove("d-none");
-    document.getElementById("contact-us").classList.add("d-none"); // Hide Contact Us if open
-});
-
-document.getElementById("closeScheduleBtn").addEventListener("click", function() {
-    document.getElementById("transit-schedule").classList.add("d-none");
-});
-
-// FIX: Properly select "Contact Us" button
-document.querySelector('.nav-link[href="#contact-us"]').addEventListener("click", function() {
+// Fix: Properly select "Contact Us" button by ID
+document.getElementById("contactUsBtn").addEventListener("click", function() {
     document.getElementById("contact-us").classList.remove("d-none");
     document.getElementById("transit-schedule").classList.add("d-none"); // Hide Transit Schedule if open
 });
