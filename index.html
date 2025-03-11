@@ -1,6 +1,6 @@
+<!-- html: Jaiyanah Baring & Lauren Villafuerte -->
 <!DOCTYPE html>
 <html>
-<!-- Header: Lauren Villafuerte -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,32 +45,40 @@
                     </li>
                 </ul>
 
+                <!-- Search Box -->
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-light" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
     <!-- Fare Guide Section -->
     <section id="fare-guide" class="container mt-4">
         <div class="card p-4 shadow-lg">
             <h2 class="text-center fw-bold">Fare Guide</h2>
-                <div class="mb-3">
-                    <label class="form-label">Leaving From:</label>
-                    <select id="departure" class="form-control">
-                        <option value="North Avenue">North Avenue</option>
-                        <option value="Quezon Avenue">Quezon Avenue</option>
-                        <option value="GMA Kamuning">GMA Kamuning</option>
-                        <option value="Cubao">Cubao</option>
-                    </select>
+            <div class="row">
+                <div class="col-md-8">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Leaving From:</label>
+                            <input type="text" id="departure" class="form-control" placeholder="Enter departure station">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Going To:</label>
+                            <input type="text" id="destination" class="form-control" placeholder="Enter destination station">
+                        </div>
+                        <div class="mb-3">
+                            <button type="button" class="btn btn-warning" onclick="calculateFare('regular')">Regular Fare</button>
+                            <button type="button" class="btn btn-danger" onclick="calculateFare('discounted')">Discounted Fare</button>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Ticket Price:</label>
+                            <input type="text" id="ticketPrice" class="form-control" readonly>
+                        </div>
+                    </form>
                 </div>
-                
-                <div class="mb-3">
-                    <label class="form-label">Going To:</label>
-                    <select id="destination" class="form-control">
-                        <option value="North Avenue">North Avenue</option>
-                        <option value="Quezon Avenue">Quezon Avenue</option>
-                        <option value="GMA Kamuning">GMA Kamuning</option>
-                        <option value="Cubao">Cubao</option>
-                    </select>
-                </div>
-             <div class="mb-3">
-                <label class="form-label">Ticket Price:</label>
-                <input type="text" id="ticketPrice" class="form-control" readonly>
             </div>
         </div>
     </section>
