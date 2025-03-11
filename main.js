@@ -100,4 +100,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("discountedFareBtn").addEventListener("click", function () {
         calculateFare("discounted");
     });
+
+    // Alert when the "Choose Ticket" button is clicked
+    function chooseTicket() {
+        alert("Your ticket has been sent to your email. You may now print it.");
+    }
+
+    // Attach event listener to the "Choose Ticket" button
+    document.getElementById("chooseTicketBtn").addEventListener("click", chooseTicket);
 });
