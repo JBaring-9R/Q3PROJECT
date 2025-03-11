@@ -101,11 +101,17 @@ document.addEventListener("DOMContentLoaded", function () {
         calculateFare("discounted");
     });
 
-    // Alert when the "Choose Ticket" button is clicked
+    document.addEventListener("DOMContentLoaded", function () {
+    // Function to show an alert when "Choose Ticket" is clicked
     function chooseTicket() {
         alert("Your ticket has been sent to your email. You may now print it.");
     }
 
-    // Attach event listener to the "Choose Ticket" button
-    document.getElementById("chooseTicketBtn").addEventListener("click", chooseTicket);
+    // Debugging: Check if the button exists before adding event listener
+    let ticketButton = document.getElementById("chooseTicketBtn");
+    if (ticketButton) {
+        ticketButton.addEventListener("click", chooseTicket);
+    } else {
+        console.log("Choose Ticket button not found!");
+    }
 });
