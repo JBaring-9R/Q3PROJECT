@@ -85,3 +85,41 @@ document.addEventListener("DOMContentLoaded", function () {
         calculateFare("discounted");
     });
 });
+
+document.getElementById("homeBtn").addEventListener("click", function () {
+    showSection("fare-guide");
+});
+
+document.getElementById("transitScheduleBtn").addEventListener("click", function () {
+    showSection("transit-schedule");
+});
+
+document.getElementById("contactUsBtn").addEventListener("click", function () {
+    showSection("contact-us");
+});
+
+document.getElementById("closeScheduleBtn").addEventListener("click", function () {
+    showSection("fare-guide");
+});
+
+document.getElementById("closeContactBtn").addEventListener("click", function () {
+    showSection("fare-guide");
+});
+
+function showSection(sectionId) {
+    // Hide all sections
+    document.getElementById("fare-guide").classList.add("d-none");
+    document.getElementById("transit-schedule").classList.add("d-none");
+    document.getElementById("contact-us").classList.add("d-none");
+
+    // Show the requested section
+    document.getElementById(sectionId).classList.remove("d-none");
+
+    // Hide carousel unless it's the home section
+    let carousel = document.getElementById("ticketCarousel");
+    if (sectionId === "fare-guide") {
+        carousel.classList.remove("d-none");
+    } else {
+        carousel.classList.add("d-none");
+    }
+}
