@@ -1,6 +1,8 @@
 body {
   background-image: url("https://i.pinimg.com/736x/47/db/09/47db09cf8ae7249727994f91c11258f4.jpg");
   background-size: cover;
+  background-position: center !important;
+  background-attachment: fixed !important;
   color: black;
 }
 
