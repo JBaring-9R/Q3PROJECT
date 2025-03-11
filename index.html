@@ -1,6 +1,6 @@
-<!-- html: Jaiyanah Baring & Lauren Villafuerte -->
 <!DOCTYPE html>
 <html>
+<!-- Header: Lauren Villafuerte -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,9 +15,11 @@
   <link rel="stylesheet" type="text/css" href="style.css">
     <title>MRT-3 Train Fare Guide</title>
 </head>
+
+<!-- Body: Jaiyanah Baring & Lauren Villafuerte -->
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <!-- Rail Transit Logo -->
             <a class="navbar-brand" href="home">
@@ -33,7 +35,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
+                        <a class="nav-link active" href="#" id="homeBtn">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="transitScheduleBtn">Transit Schedule</a>
@@ -42,11 +44,20 @@
                         <a class="nav-link" href="#" id="contactUsBtn">Contact Us</a>
                     </li>
                 </ul>
-                
+
+                <!-- Search Box -->
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-light" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
     <!-- Fare Guide Section -->
     <section id="fare-guide" class="container mt-4">
         <div class="card p-4 shadow-lg">
-            <h2 class="text-center text-danger fw-bold">Fare Guide</h2>
+            <h2 class="text-center fw-bold">Fare Guide</h2>
             <div class="row">
                 <div class="col-md-8">
                     <form>
@@ -75,7 +86,7 @@
     <!-- Transit Schedule Section (Hidden by Default) -->
     <section id="transit-schedule" class="container mt-4 d-none">
         <div class="card p-4 shadow-lg">
-            <h2 class="text-center text-primary fw-bold">Transit Schedule</h2>
+            <h2 class="text-center fw-bold">Transit Schedule</h2>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -110,7 +121,7 @@
 <!-- Contact Us Section (Hidden by Default) -->
     <section id="contact-us" class="container mt-4 d-none">
         <div class="card p-4 shadow-lg">
-            <h2 class="text-center text-success fw-bold">Contact Us</h2>
+            <h2 class="text-center fw-bold">Contact Us</h2>
             <p class="text-center">For inquiries, feedback, or concerns, feel free to reach out to us.</p>
             <form>
                 <div class="mb-3">
