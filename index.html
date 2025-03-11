@@ -15,14 +15,12 @@
   <link rel="stylesheet" type="text/css" href="style.css">
     <title>MRT-3 Train Fare Guide</title>
 </head>
-
-<!-- Body: Jaiyanah Baring & Lauren Villafuerte -->
 <body>
-       <!-- Navigation Bar -->
+      <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <!-- Rail Transit Logo -->
-            <a class="navbar-brand" href="home">
+            <a class="navbar-brand" href="#">
                 <img src="MRT 3.png" alt="Rail Transit Logo" width="100px" height="100px" class="rounded"> MRT-3 Fare Guide
             </a>
 
@@ -35,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
+                        <a class="nav-link active" href="#" id="homeBtn">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="transitScheduleBtn">Transit Schedule</a>
@@ -54,7 +52,6 @@
         </div>
     </nav>
 
-
     <!-- Fare Guide Section -->
     <section id="fare-guide" class="container mt-4">
         <div class="card p-4 shadow-lg">
@@ -71,8 +68,8 @@
                             <input type="text" id="destination" class="form-control" placeholder="Enter destination station">
                         </div>
                         <div class="mb-3">
-                            <button type="button" class="btn btn-warning" onclick="calculateFare('regular')">Regular Fare</button>
-                            <button type="button" class="btn btn-danger" onclick="calculateFare('discounted')">Discounted Fare</button>
+                            <button type="button" class="btn btn-warning" id="regularFareBtn">Regular Fare</button>
+                            <button type="button" class="btn btn-danger" id="discountedFareBtn">Discounted Fare</button>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Ticket Price:</label>
@@ -107,23 +104,16 @@
                         <td>4:32 AM</td>
                         <td>10:32 PM</td>
                     </tr>
-                    <tr>
-                        <td>GMA Kamuning</td>
-                        <td>4:34 AM</td>
-                        <td>10:34 PM</td>
-                    </tr>
-                    <!-- Add more stations as needed -->
                 </tbody>
             </table>
             <button id="closeScheduleBtn" class="btn btn-danger">Close</button>
         </div>
     </section>
 
-<!-- Contact Us Section (Hidden by Default) -->
+    <!-- Contact Us Section (Hidden by Default) -->
     <section id="contact-us" class="container mt-4 d-none">
         <div class="card p-4 shadow-lg">
             <h2 class="text-center fw-bold">Contact Us</h2>
-            <p class="text-center">For inquiries, feedback, or concerns, feel free to reach out to us.</p>
             <form>
                 <div class="mb-3">
                     <label class="form-label">Your Name:</label>
@@ -137,10 +127,8 @@
                     <label class="form-label">Your Message:</label>
                     <textarea id="message" class="form-control" rows="4" placeholder="Write your message here"></textarea>
                 </div>
-                <div class="mb-3 text-center">
-                    <button type="button" class="btn btn-warning" onclick="submitContact()">Send Message</button>
-                    <button type="button" id="closeContactBtn" class="btn btn-danger">Close</button>
-                </div>
+                <button type="button" class="btn btn-warning" id="sendMessageBtn">Send Message</button>
+                <button type="button" id="closeContactBtn" class="btn btn-danger">Close</button>
             </form>
         </div>
     </section>
