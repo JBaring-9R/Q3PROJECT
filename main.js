@@ -1,49 +1,72 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Function to toggle visibility of elements
     function toggleVisibility(showElement, hideElements) {
-        document.getElementById(showElement).classList.remove("d-none");
+        let showEl = document.getElementById(showElement);
+        if (showEl) showEl.classList.remove("d-none");
+
         hideElements.forEach(element => {
-            document.getElementById(element).classList.add("d-none");
+            let hideEl = document.getElementById(element);
+            if (hideEl) hideEl.classList.add("d-none");
         });
-        
-    // Ensure carousel is only visible when "fare-guide" is shown
+
+        // Ensure carousel is only visible when "fare-guide" is shown
         let carousel = document.getElementById("ticketCarousel");
-        if (showElement === "fare-guide") {
-            carousel.classList.remove("d-none");
-        } else {
-            carousel.classList.add("d-none");
+        if (carousel) {
+            if (showElement === "fare-guide") {
+                carousel.classList.remove("d-none");
+            } else {
+                carousel.classList.add("d-none");
+            }
         }
     }
 
     // Event Listeners for Navbar Buttons
-    document.getElementById("transitScheduleBtn").addEventListener("click", function () {
-        toggleVisibility("transit-schedule", ["contact-us", "fare-guide"]);
-    });
+    let transitScheduleBtn = document.getElementById("transitScheduleBtn");
+    let contactUsBtn = document.getElementById("contactUsBtn");
+    let homeBtn = document.querySelector(".nav-link[href='#']"); // Fix for Home button
 
-    document.getElementById("contactUsBtn").addEventListener("click", function () {
-        toggleVisibility("contact-us", ["transit-schedule", "fare-guide"]);
-    });
-
-    // **Fix: Add Event Listener for Home Button**
-    document.querySelector(".nav-link.active").addEventListener("click", function () {
-        toggleVisibility("fare-guide", ["transit-schedule", "contact-us"]);
-    });
-
-    // Close Buttons for Sections
-    document.getElementById("closeScheduleBtn").addEventListener("click", function () {
-        document.getElementById("transit-schedule").classList.add("d-none");
-    });
-
-    document.getElementById("closeContactBtn").addEventListener("click", function () {
-        document.getElementById("contact-us").classList.add("d-none");
-    });
-
-    // Carousel Ticket Selection
-    let ticketButtons = document.querySelectorAll(".choose-ticket-btn");
-    ticketButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            let ticketType = this.getAttribute("data-ticket"); // Get ticket type
-            alert(`Your ${ticketType} ticket has been sent to your email. You may now print it.`);
+    if (transitScheduleBtn) {
+        transitScheduleBtn.addEventListener("click", function () {
+            toggleVisibility("transit-schedule", ["contact-us", "fare-guide"]);
         });
-    });
+    }
+
+    if (contactUsBtn) {
+        contactUsBtn.addEventListener("click", function () {
+            toggleVisibility("contact-us", ["transit-schedule", "fare-guide"]);
+        });
+    }
+
+    if (homeBtn) {
+        homeBtn.addEventListener("click", function () {
+            toggleVisibility("fare-guide", ["transit-schedule", "contact-us"]);
+        });
+    }
+
+    // Close Buttons for Sections (Fix: Return to Fare Guide)
+    let closeScheduleBtn = document.getElementById("closeScheduleBtn");
+    let closeContactBtn = document.getElementById("closeContactBtn");
+
+    if (closeScheduleBtn) {
+        closeScheduleBtn.addEventListener("click", function () {
+            toggleVisibility("fare-guide", ["transit-schedule", "contact-us"]);
+        });
+    }
+
+    if (closeContactBtn) {
+        closeContactBtn.addEventListener("click", function () {
+            toggleVisibility("fare-guide", ["contact-us", "transit-schedule"]);
+        });
+    }
+
+    // Ticket Selection in Carousel
+    let ticketButtons = document.querySelectorAll(".choose-ticket-btn");
+    if (ticketButtons) {
+        ticketButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                let ticketType = this.getAttribute("data-ticket"); // Get ticket type
+                alert(`Your ${ticketType} ticket has been sent to your email. You may now print it.`);
+            });
+        });
+    }
 });
