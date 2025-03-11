@@ -12,7 +12,7 @@
 
   <!-- CSS SETUP -->
   <link rel="stylesheet" type="text/css" href="style.css">
-    <title>MRT-3 Traim Fare Guide</title>
+    <title>MRT-3 Train Fare Guide</title>
 </head>
 <!-- Body: Jaiyanah Baring & Lauren Villafuerte -->
 <body>
@@ -51,9 +51,38 @@
       </div>
   </div>
 </nav>
- 
-<h1>Train fare Guide</h1>
 
+<!-- Fare Guide Section -->
+<section class="container mt-4">
+   <div class="card p-4 shadow-lg">
+       <h2 class="text-center text-danger">Fare Guide</h2>
+       <div class="row">
+           <div class="col-md-8">
+               <form>
+                   <div class="mb-3">
+                       <label class="form-label">Leaving From:</label>
+                       <input type="text" class="form-control" placeholder="Enter departure station">
+                   </div>
+                   <div class="mb-3">
+                       <label class="form-label">Going To:</label>
+                       <input type="text" class="form-control" placeholder="Enter destination station">
+                   </div>
+                   <div class="mb-3">
+                       <button type="button" class="btn btn-primary">Regular Fare</button>
+                       <button type="button" class="btn btn-info">Discounted Fare</button>
+                   </div>
+                   <div class="mb-3">
+                       <label class="form-label">Ticket Price:</label>
+                       <input type="text" class="form-control" readonly>
+                   </div>
+               </form>
+           </div>
+           <div class="col-md-4 text-center">
+               <img src="train-card.png" alt="Train Ticket" class="img-fluid rounded">
+           </div>
+       </div>
+   </div>
+</section>
 
 
 
