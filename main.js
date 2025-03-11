@@ -7,31 +7,48 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Function to show sections
+    function showSection(sectionId) {
+        // Hide all sections
+        document.getElementById("fare-guide").classList.add("d-none");
+        document.getElementById("transit-schedule").classList.add("d-none");
+        document.getElementById("contact-us").classList.add("d-none");
+
+        // Show the requested section
+        document.getElementById(sectionId).classList.remove("d-none");
+
+        // Hide carousel unless it's the home section
+        let carousel = document.getElementById("ticketCarousel");
+        if (sectionId === "fare-guide") {
+            carousel.classList.remove("d-none");
+        } else {
+            carousel.classList.add("d-none");
+        }
+    }
+
     // Event Listeners for Navbar Buttons
+    document.getElementById("homeBtn").addEventListener("click", function () {
+        showSection("fare-guide");
+    });
+
     document.getElementById("transitScheduleBtn").addEventListener("click", function () {
-        toggleVisibility("transit-schedule", ["contact-us", "fare-guide"]);
+        showSection("transit-schedule");
     });
 
     document.getElementById("contactUsBtn").addEventListener("click", function () {
-        toggleVisibility("contact-us", ["transit-schedule", "fare-guide"]);
-    });
-
-    document.getElementById("homeBtn").addEventListener("click", function () {
-        toggleVisibility("fare-guide", ["transit-schedule", "contact-us"]);
+        showSection("contact-us");
     });
 
     // Close Buttons for Sections
     document.getElementById("closeScheduleBtn").addEventListener("click", function () {
-        document.getElementById("transit-schedule").classList.add("d-none");
-        document.getElementById("fare-guide").classList.remove("d-none"); // Show fare guide when closing schedule
+        showSection("fare-guide");
     });
 
     document.getElementById("closeContactBtn").addEventListener("click", function () {
-        document.getElementById("contact-us").classList.add("d-none");
-        document.getElementById("fare-guide").classList.remove("d-none"); // Show fare guide when closing contact
+        showSection("fare-guide");
     });
 
-    // Corrected Contact Form Submission Handling
+    // Contact Form Submission Handling
     function submitContact() {
         let name = document.getElementById("name").value.trim();
         let email = document.getElementById("email").value.trim();
@@ -43,12 +60,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         alert(`Thank you, ${name}! Your message has been sent successfully.`);
-        document.getElementById("contact-us").classList.add("d-none"); // Hide after submission
-        document.getElementById("fare-guide").classList.remove("d-none"); // Show fare guide after submission
+        showSection("fare-guide"); // Show fare guide after submission
     }
 
     // Attach event listener to the "Send Message" button
-    document.querySelector(".btn-primary[onclick='submitContact()']").addEventListener("click", submitContact);
+    document.getElementById("sendMessageBtn").addEventListener("click", submitContact);
 
     // Fare Calculation Function
     function calculateFare(type) {
@@ -77,49 +93,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Attach fare calculation function to buttons
-    document.querySelector(".btn-primary[onclick=\"calculateFare('regular')\"]").addEventListener("click", function () {
+    document.getElementById("regularFareBtn").addEventListener("click", function () {
         calculateFare("regular");
     });
 
-    document.querySelector(".btn-info[onclick=\"calculateFare('discounted')\"]").addEventListener("click", function () {
+    document.getElementById("discountedFareBtn").addEventListener("click", function () {
         calculateFare("discounted");
     });
 });
-
-document.getElementById("homeBtn").addEventListener("click", function () {
-    showSection("fare-guide");
-});
-
-document.getElementById("transitScheduleBtn").addEventListener("click", function () {
-    showSection("transit-schedule");
-});
-
-document.getElementById("contactUsBtn").addEventListener("click", function () {
-    showSection("contact-us");
-});
-
-document.getElementById("closeScheduleBtn").addEventListener("click", function () {
-    showSection("fare-guide");
-});
-
-document.getElementById("closeContactBtn").addEventListener("click", function () {
-    showSection("fare-guide");
-});
-
-function showSection(sectionId) {
-    // Hide all sections
-    document.getElementById("fare-guide").classList.add("d-none");
-    document.getElementById("transit-schedule").classList.add("d-none");
-    document.getElementById("contact-us").classList.add("d-none");
-
-    // Show the requested section
-    document.getElementById(sectionId).classList.remove("d-none");
-
-    // Hide carousel unless it's the home section
-    let carousel = document.getElementById("ticketCarousel");
-    if (sectionId === "fare-guide") {
-        carousel.classList.remove("d-none");
-    } else {
-        carousel.classList.add("d-none");
-    }
-}
