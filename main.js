@@ -16,13 +16,19 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleVisibility("contact-us", ["transit-schedule", "fare-guide"]);
     });
 
+    document.getElementById("homeBtn").addEventListener("click", function () {
+        toggleVisibility("fare-guide", ["transit-schedule", "contact-us"]);
+    });
+
     // Close Buttons for Sections
     document.getElementById("closeScheduleBtn").addEventListener("click", function () {
         document.getElementById("transit-schedule").classList.add("d-none");
+        document.getElementById("fare-guide").classList.remove("d-none"); // Show fare guide when closing schedule
     });
 
     document.getElementById("closeContactBtn").addEventListener("click", function () {
         document.getElementById("contact-us").classList.add("d-none");
+        document.getElementById("fare-guide").classList.remove("d-none"); // Show fare guide when closing contact
     });
 
     // Corrected Contact Form Submission Handling
@@ -38,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         alert(`Thank you, ${name}! Your message has been sent successfully.`);
         document.getElementById("contact-us").classList.add("d-none"); // Hide after submission
+        document.getElementById("fare-guide").classList.remove("d-none"); // Show fare guide after submission
     }
 
     // Attach event listener to the "Send Message" button
