@@ -78,3 +78,8 @@ document.addEventListener("DOMContentLoaded", function () {
         calculateFare("discounted");
     });
 });
+
+    document.querySelector(".btn-info[onclick=\"calculateFare('discounted')\"]").addEventListener("click", function () {
+        calculateFare("discounted");
+    });
+});
