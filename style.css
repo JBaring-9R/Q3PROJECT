@@ -43,3 +43,52 @@ body {
 .card h2 {
     color: #F4DEB3 !important;
 }
+
+#ticketCarousel {
+    max-width: 500px; 
+    margin: 0 auto;   
+    background: #f8f9fa; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+#ticketCarousel .carousel-inner {
+    text-align: center;
+}
+
+
+#ticketCarousel img {
+    max-width: 100%; 
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.choose-ticket-btn {
+    background: #198754; 
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.choose-ticket-btn:hover {
+    background: #145a32;
+}
+
+#ticketCarousel .carousel-control-prev,
+#ticketCarousel .carousel-control-next {
+    filter: invert(1);
+}
+
+@media (max-width: 768px) {
+    #ticketCarousel {
+        max-width: 90%; 
+    }
+}
+
