@@ -1,44 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
-    function toggleVisibility(showElement, hideElements) {
-        document.getElementById(showElement).classList.remove("d-none");
-        hideElements.forEach(element => {
-            let el = document.getElementById(element);
-            if (el) el.classList.add("d-none");
-        });
+    function toggleVisibility(element) {
+        let section = document.getElementById(element);
+        
+        // Toggle visibility
+        if (section.classList.contains("d-none")) {
+            section.classList.remove("d-none");
+        } else {
+            section.classList.add("d-none");
+        }
     }
 
-    function hideFareGuide() {
-        let fareGuide = document.getElementById("fare-guide");
-        if (fareGuide) fareGuide.classList.add("d-none");
-    }
-
-    function showFareGuide() {
-        let fareGuide = document.getElementById("fare-guide");
-        if (fareGuide) fareGuide.classList.remove("d-none");
-    }
-
+    // Transit Schedule Toggle
     document.getElementById("transitScheduleBtn").addEventListener("click", function () {
-        toggleVisibility("transit-schedule", ["contact-us", "fare-guide"]);
-        hideFareGuide();
+        toggleVisibility("transit-schedule");
+        document.getElementById("contact-us").classList.add("d-none"); // Hide Contact Us when showing Transit Schedule
     });
 
+    // Contact Us Toggle
     document.getElementById("contactUsBtn").addEventListener("click", function () {
-        toggleVisibility("contact-us", ["transit-schedule", "fare-guide"]);
-        hideFareGuide();
+        toggleVisibility("contact-us");
+        document.getElementById("transit-schedule").classList.add("d-none"); // Hide Transit Schedule when showing Contact Us
     });
 
-    document.getElementById("homeBtn").addEventListener("click", function () {
-        toggleVisibility("fare-guide", ["transit-schedule", "contact-us"]);
-        showFareGuide();
-    });
-
+    // Close Transit Schedule
     document.getElementById("closeScheduleBtn").addEventListener("click", function () {
-        toggleVisibility("fare-guide", ["transit-schedule", "contact-us"]);
-        showFareGuide();
+        document.getElementById("transit-schedule").classList.add("d-none");
     });
 
+    // Close Contact Us
     document.getElementById("closeContactBtn").addEventListener("click", function () {
-        toggleVisibility("fare-guide", ["transit-schedule", "contact-us"]);
-        showFareGuide();
+        document.getElementById("contact-us").classList.add("d-none");
     });
+
+    // Ensure Fare Guide is always visible
+    document.getElementById("fare-guide").classList.remove("d-none");
 });
