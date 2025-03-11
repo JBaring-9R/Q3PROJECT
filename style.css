@@ -43,3 +43,9 @@ body {
 .card h2 {
     color: #F4DEB3 !important;
 }
+
+.carousel-item img {
+    width: 60%;  /* Adjust percentage to your preferred size */
+    height: auto;
+    margin: 0 auto;  /* Centers the images */
+}
