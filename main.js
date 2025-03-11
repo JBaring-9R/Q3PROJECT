@@ -1,3 +1,5 @@
+//Javascript: Jaiyanah Baring & Lauren Villafuerte
+
 document.addEventListener("DOMContentLoaded", function () {
     // Function to toggle visibility of elements
     function toggleVisibility(showElement, hideElements) {
@@ -80,6 +82,11 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".btn-primary[onclick=\"calculateFare('regular')\"]").addEventListener("click", function () {
         calculateFare("regular");
     });
+
+    document.querySelector(".btn-info[onclick=\"calculateFare('discounted')\"]").addEventListener("click", function () {
+        calculateFare("discounted");
+    });
+});
 
     document.querySelector(".btn-info[onclick=\"calculateFare('discounted')\"]").addEventListener("click", function () {
         calculateFare("discounted");
