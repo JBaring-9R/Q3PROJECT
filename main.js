@@ -102,16 +102,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     document.addEventListener("DOMContentLoaded", function () {
-    // Function to show an alert when "Choose Ticket" is clicked
-    function chooseTicket() {
-        alert("Your ticket has been sent to your email. You may now print it.");
-    }
+    // Select all "Choose Ticket" buttons
+    let ticketButtons = document.querySelectorAll(".choose-ticket-btn");
 
-    // Debugging: Check if the button exists before adding event listener
-    let ticketButton = document.getElementById("chooseTicketBtn");
-    if (ticketButton) {
-        ticketButton.addEventListener("click", chooseTicket);
-    } else {
-        console.log("Choose Ticket button not found!");
-    }
+    ticketButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            let ticketType = this.getAttribute("data-ticket"); // Get ticket type
+            alert(`Your ${ticketType} ticket has been sent to your email. You may now print it.`);
+        });
+    });
 });
