@@ -20,3 +20,10 @@ body {
 .navbar-toggler {
     border-color: white;
 }
+
+/* Change the card background color */
+.card {
+    background-color: #f8d7da !important; /* Light red/pinkish background */
+    border: 2px solid #dc3545; /* Optional: Adds a red border */
+    color: black; /* Ensures text remains visible */
+}
