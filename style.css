@@ -1,5 +1,25 @@
 body {
   background-image: url();
   background-size: cover;
-  color: black
+  color: black;
+}
+
+.navbar {
+    background-color: #ff5733 !important; /* Change this to your preferred color */
+}
+
+/* Change Navbar Text Color */
+.navbar .navbar-brand,
+.navbar .nav-link {
+    color: white !important; /* Ensures text remains visible */
+}
+
+/* Change Navbar Hover Effect */
+.navbar .nav-link:hover {
+    color: yellow !important; /* Change this to any hover color you want */
+}
+
+/* Navbar Toggle Button Color (for mobile view) */
+.navbar-toggler {
+    border-color: white !important;
 }
