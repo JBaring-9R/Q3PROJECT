@@ -101,3 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Ensure carousel is shown by default on page load
     showCarousel();
 });
+
+function chooseTicket(house) {
+    alert("You have chosen the " + house + " ticket!");
+}
