@@ -101,3 +101,7 @@ body {
     font-size: 16px;
     cursor: pointer;
 }
+
+.choose-ticket:hover {
+    background-color: #1a1919;
+}
