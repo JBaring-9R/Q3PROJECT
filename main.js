@@ -87,5 +87,5 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function chooseTicket(house) {
-    alert("You have chosen the " + house + " ticket!");
+    alert("You have chosen the " + house + " ticket!" + "Ticket has been sent to email and is ready for printing.");
 }
