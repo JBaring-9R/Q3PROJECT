@@ -53,9 +53,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fare Calculation Function
     function calculateFare(type) {
         const fares = {
-            "North Avenue": { "Quezon Avenue": 25, "GMA Kamuning": 30 },
-            "Quezon Avenue": { "GMA Kamuning": 25, "North Avenue": 25 },
-            "GMA Kamuning": { "Quezon Avenue": 25, "North Avenue": 30 }
+            "North Avenue": { "Quezon Avenue": 25, "GMA Kamuning": 30, "Araneta-Cubao": 35, "Santolan-Annapolis": 40 },
+            "Quezon Avenue": { "GMA Kamuning": 25, "North Avenue": 25, "Araneta-Cubao": 30, "Santolan-Annapolis": 35 },
+            "GMA Kamuning": { "Quezon Avenue": 25, "North Avenue": 30, "Araneta-Cubao": 25, "Santolan-Annapolis": 30 },
+            "Araneta-Cubao": { "Quezon Avenue": 30, "GMA Kamuning": 25, "North Avenue": 35, "Santolan-Annapolis": 25 },
+            "Santolan-Annapolis": { "Quezon Avenue": 35, "GMA Kamuning": 30, "North Avenue": 40, "Araneta-Cubao": 25 }
         };
 
         let departure = document.getElementById("departure").value.trim();
