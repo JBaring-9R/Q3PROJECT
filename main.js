@@ -53,9 +53,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fare Calculation Function
     function calculateFare(type) {
         const fares = {
-            "North Avenue": { "Quezon Avenue": 15, "GMA Kamuning": 20 },
-            "Quezon Avenue": { "GMA Kamuning": 15, "North Avenue": 15 },
-            "GMA Kamuning": { "Quezon Avenue": 15, "North Avenue": 20 }
+            "North Avenue": { "Quezon Avenue": 25, "GMA Kamuning": 30 },
+            "Quezon Avenue": { "GMA Kamuning": 25, "North Avenue": 25 },
+            "GMA Kamuning": { "Quezon Avenue": 25, "North Avenue": 30 }
         };
 
         let departure = document.getElementById("departure").value.trim();
