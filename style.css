@@ -105,7 +105,3 @@ body {
 .choose-ticket:hover {
     background-color: #1a1919;
 }
-
-.img-fluid {
-    max-width: 600px;
-}
