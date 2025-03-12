@@ -95,14 +95,9 @@ body {
     display: block;
     width: fit-content;
     margin: 10px auto;
-    color: white;
     border: none;
     padding: 8px 15px;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-}
-
-.choose-ticket:hover {
-    background-color: #780505;
 }
