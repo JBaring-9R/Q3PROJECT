@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Attach event listener to the "Send Message" button
-    document.querySelector(".btn-primary[onclick='submitContact()']").addEventListener("click", submitContact);
+    document.getElementById("sendMessageBtn").addEventListener("click", submitContact);
 
     // Fare Calculation Function
     function calculateFare(type) {
@@ -77,11 +77,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Attach fare calculation function to buttons
-    document.querySelector(".btn-primary[onclick=\"calculateFare('regular')\"]").addEventListener("click", function () {
+    document.getElementById("regularFareBtn").addEventListener("click", function () {
         calculateFare("regular");
     });
 
-    document.querySelector(".btn-info[onclick=\"calculateFare('discounted')\"]").addEventListener("click", function () {
+    document.getElementById("discountedFareBtn").addEventListener("click", function () {
         calculateFare("discounted");
     });
+
+    // Ensure the carousel is only shown on the homepage
+    function showCarousel() {
+        document.getElementById("ticket-carousel").classList.remove("d-none");
+    }
+
+    function hideCarousel() {
+        document.getElementById("ticket-carousel").classList.add("d-none");
+    }
+
+    document.getElementById("homeBtn").addEventListener("click", showCarousel);
+    document.getElementById("transitScheduleBtn").addEventListener("click", hideCarousel);
+    document.getElementById("contactUsBtn").addEventListener("click", hideCarousel);
+
+    // Ensure carousel is shown by default on page load
+    showCarousel();
 });
