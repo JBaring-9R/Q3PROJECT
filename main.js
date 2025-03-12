@@ -84,22 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("discountedFareBtn").addEventListener("click", function () {
         calculateFare("discounted");
     });
-
-    // Ensure the carousel is only shown on the homepage
-    function showCarousel() {
-        document.getElementById("ticket-carousel").classList.remove("d-none");
-    }
-
-    function hideCarousel() {
-        document.getElementById("ticket-carousel").classList.add("d-none");
-    }
-
-    document.getElementById("homeBtn").addEventListener("click", showCarousel);
-    document.getElementById("transitScheduleBtn").addEventListener("click", hideCarousel);
-    document.getElementById("contactUsBtn").addEventListener("click", hideCarousel);
-
-    // Ensure carousel is shown by default on page load
-    showCarousel();
 });
 
 function chooseTicket(house) {
