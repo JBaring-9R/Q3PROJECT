@@ -82,3 +82,28 @@ body {
         height: 300px; /* Smaller height for mobile */
     }
 }
+
+.ticket-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.choose-ticket {
+    display: block;
+    width: fit-content;
+    margin: 10px auto;
+    background-color: #a30606;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.choose-ticket:hover {
+    background-color: #780505;
+}
